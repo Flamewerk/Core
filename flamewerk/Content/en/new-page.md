@@ -4,9 +4,7 @@ description: 'meta description of the page'
 ---
 :ComponentsReference
 
-:ComponentsMessage
-
 ::BlocksProseContentCenter
-# Nuxt3 Production Template
+# This is a new Page
 
 ::
