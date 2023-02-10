@@ -13,14 +13,17 @@ export const useSettings = defineStore("project", {
     dafaultroute: "/error",     
 
     layout: 'web',            // (default, web, app, shop, docs )
-    layoutnews: 'docs',       // (default, web, app, shop, docs ) ?? Check if hooked
+    layoutnews: 'docs',       // (default, web, app, shop, docs ) 
     layoutdocs: 'docs',       // (default, web, app, shop, docs )      
 
 
-    headertype: 'Minimal',    // Options: Tiny, Minimal, Maximum
+    shopcurrency: 'eur',      // Commerce Settings
+    snipcartid: 'YjIxYzVkZTMtZTAwYi00ODAxLWFiZTgtN2RmNGM4Y2NkZDJlNjM3MjQ4MDgxODk2ODI3ODcy', // Snipcart API
+
+    headertype: 'Minimal',    // Options: Tiny, Minimal, Maximum, Ecommerce, Application
     headerlanguage: true,
 
-    footertype: 'Tiny',       // Options: Tiny, Minimal, Maximum
+    footertype: 'Tiny',       // Options: Tiny, Minimal, Maximum, Ecommerce
     footerlanguage: true,
     footertheme:true,         // Toggle Dark/Light mode switch
     
