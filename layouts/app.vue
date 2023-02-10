@@ -17,6 +17,7 @@
       >
         <div class="py-6">
           <div class="max-w-7xl mx-auto px-0 sm:px-6 md:px-8">
+            <div v-if="project.$state.shop" hidden id="snipcart" :data-api-key="project.$state.snipcartid"></div>
             <slot />
           </div>
         </div>
@@ -28,4 +29,21 @@
 <script setup>
 import { useSettings } from "~/flamewerk/project";
 const project = useSettings();
+
+
+useHead({
+  link: [
+    { rel: "preconnect", href: "https://app.snipcart.com" },
+    { rel: "preconnect", href: "https://cdn.snipcart.com" },
+    {
+      rel: "stylesheet",
+      href: "https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.css",
+    },
+  ],
+  script: [
+    { src: "https://cdn.snipcart.com/themes/v3.2.1/default/snipcart.js" },
+  ],
+});
+
+
 </script>

@@ -8,7 +8,7 @@
       <BlocksSwitchTheme v-if="project.$state.footertheme" />
     </div>
 
-    <BlocksSocialsBasic />
+    <BlocksSocialsBasic v-if="project.$state.footersocials"/>
 
     <BlocksFooterCopyright />
   </div>
