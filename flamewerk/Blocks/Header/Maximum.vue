@@ -13,6 +13,7 @@
             <span class="sr-only">{{ project.$state.name }}</span>
 
             <img
+            v-if="project.$state.logo"
               :class="[project.$state.logodark ? 'block dark:hidden' : '', '']"
               :src="'/logo/' + project.$state.logoimage"
               :alt="project.$state.name"
@@ -35,7 +36,7 @@
             >
           </NuxtLink>
         </div>
-        <div class="-my-2 -mr-2 md:hidden">
+        <div class="my-2 mr-2 md:hidden">
           <PopoverButton
             class="inline-flex items-center justify-center rounded-md bg-colorBgLight dark:bg-colorBgDark p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-colorHighLight dark:focus:ring-colorHighDark"
           >
@@ -47,7 +48,21 @@
           class="hidden md:flex md:flex-1 md:items-center md:justify-between"
         >
           <PopoverGroup as="nav" class="flex space-x-10">
-            <Popover v-slot="{ open }">
+
+
+            <!-- Basic Menu Integration --> 
+
+        <NuxtLink
+          :to="localePath(item.href)"
+          v-for="item in navigation.basicmenu"
+          :key="item.name"
+          class="text-base font-medium text-gray-500 hover:text-colorTxtLight dark:text-colorTxtDark"
+          >{{ item.name }}</NuxtLink
+        >
+
+
+
+            <Popover v-slot="{ open }" v-if="project.$state.Headernavigation.MenuPopupBig">
               <PopoverButton
                 :class="[
                   open
@@ -56,7 +71,7 @@
                   'px-1 group inline-flex items-center rounded-md bg-colorSwitchBgLight dark:bg-colorSwitchBgDark text-base font-medium hover:text-colorTxtLight dark:text-colorTxtDark focus:outline-none focus:ring-2 focus:ring-colorHighLight dark:focus:ring-colorHighDark focus:ring-offset-2 dark:focus:ring-offset-colorBgDark',
                 ]"
               >
-                <span>Solutions</span>
+                <span>{{project.$state.Headernavigation.MenuPopupBigName}}</span>
                 <ChevronDownIcon
                   :class="[
                     open ? 'text-gray-600' : 'text-gray-400',
@@ -81,7 +96,7 @@
                     class="mx-auto grid max-w-7xl gap-y-6 px-4 py-6 sm:grid-cols-2 sm:gap-8 sm:px-6 sm:py-8 lg:grid-cols-4 lg:px-8 lg:py-12 xl:py-16"
                   >
                     <NuxtLink
-                      v-for="item in navigation.primepop"
+                      v-for="item in navigation.MenuPopupBigItems"
                       :key="item.name"
                       :to="localePath(item.href)"
                       class="-m-3 flex flex-col justify-between rounded-lg p-3 bg-colorHeaderBgMenuPopupLinkLight hover:bg-colorHeaderBgMenuPopupLinkHoverLight dark:hover:bg-colorHeaderBgMenuPopupLinkHoverDark dark:bg-colorHeaderBgMenuPopupLinkDark"
@@ -119,40 +134,28 @@
                       </div>
                     </NuxtLink>
                   </div>
-                  <div
-                    class="bg-colorHeaderBgMenuPopupFooterLight dark:bg-colorHeaderBgMenuPopupFooterDark"
-                  >
-                    <div
-                      class="mx-auto max-w-7xl space-y-6 px-4 py-5 sm:flex sm:space-y-0 sm:space-x-10 sm:px-6 lg:px-8"
-                    >
-                      <div
-                        v-for="item in navigation.callsToAction"
-                        :key="item.name"
-                        class="flow-root"
-                      >
-                        <NuxtLink
-                          :to="localePath(item.href)"
-                          class="-m-3 flex items-center rounded-md p-3 text-base font-medium text-colorTxtLight dark:text-colorTxtDark hover:bg-colorHeaderBgMenuPopupLinkHoverLight dark:hover:bg-colorHeaderBgMenuPopupLinkHoverDark"
-                        >
-                          <component
-                            :is="item.icon"
-                            class="h-6 w-6 flex-shrink-0 text-gray-400"
-                            aria-hidden="true"
-                          />
-                          <span class="ml-3">{{ item.name }}</span>
-                        </NuxtLink>
-                      </div>
-                    </div>
-                  </div>
+
                 </PopoverPanel>
               </transition>
             </Popover>
-            <NuxtLink
-              :to="localePath('/page')"
-              class="text-base font-medium text-gray-500 hover:text-colorTxtLight dark:text-colorTxtDark"
-              >Pricing</NuxtLink
-            >
-            <Popover v-slot="{ open }">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <Popover v-slot="{ open }" v-if="project.$state.Headernavigation.MenuPopupSplit">
               <PopoverButton
                 :class="[
                   open
@@ -161,7 +164,7 @@
                   'px-1 group inline-flex items-center rounded-md bg-colorSwitchBgLight dark:bg-colorSwitchBgDark text-base font-medium hover:text-colorTxtLight dark:text-colorTxtDark focus:outline-none focus:ring-2 focus:ring-colorHighLight dark:focus:ring-colorHighDark focus:ring-offset-2 dark:focus:ring-offset-colorBgDark',
                 ]"
               >
-                <span>More</span>
+                <span>{{project.$state.Headernavigation.MenuPopupSplitName}}</span>
                 <ChevronDownIcon
                   :class="[
                     open ? 'text-gray-600' : 'text-gray-400',
@@ -196,15 +199,23 @@
                     <nav
                       class="grid gap-y-10 bg-colorHeaderBgMenuPopupLight dark:bg-colorHeaderBgMenuPopupDark px-4 py-8 sm:grid-cols-2 sm:gap-x-8 sm:py-12 sm:px-6 lg:px-8 xl:pr-12"
                     >
-                      <div>
+
+
+                      <div
+                      
+                      v-for="item in navigation.MenuPopupSplitColums"
+                      :key="item"
+                      
+                      >
                         <h3
                           class="text-base font-medium text-colorTxtLight dark:text-colorTxtDark"
                         >
-                          Company
+                          
+                          {{navigation.MenuPopupSplitColums[0]}}
                         </h3>
                         <ul role="list" class="mt-5 space-y-6">
                           <li
-                            v-for="item in navigation.company"
+                            v-for="item in item"
                             :key="item.name"
                             class="flow-root py-1"
                           >
@@ -212,93 +223,27 @@
                               :to="localePath(item.href)"
                               class="-m-3 flex items-center rounded-md p-3 text-base font-medium text-colorTxtLight dark:text-colorTxtDark bg-colorHeaderBgMenuPopupLinkLight hover:bg-colorHeaderBgMenuPopupLinkHoverLight dark:hover:bg-colorHeaderBgMenuPopupLinkHoverDark dark:bg-colorHeaderBgMenuPopupLinkDark"
                             >
-                              <component
-                                :is="item.icon"
-                                class="h-6 w-6 flex-shrink-0 text-gray-400"
-                                aria-hidden="true"
-                              />
+   
+                              <span class="h-6 w-6 flex-shrink-0 text-gray-400">{{ item.icon }}</span>
                               <span class="ml-4">{{ item.name }}</span>
                             </NuxtLink>
                           </li>
                         </ul>
                       </div>
-                      <div>
-                        <h3
-                          class="text-base font-medium text-colorTxtLight dark:text-colorTxtDark"
-                        >
-                          Parners
-                        </h3>
-                        <ul role="list" class="mt-5 space-y-6">
-                          <li
-                            v-for="item in navigation.partners"
-                            :key="item.name"
-                            class="flow-root py-1"
-                          >
-                            <NuxtLink
-                              :to="localePath(item.href)"
-                              class="-m-3 flex items-center rounded-md p-3 text-base font-medium text-colorTxtLight dark:text-colorTxtDark bg-colorHeaderBgMenuPopupLinkLight hover:bg-colorHeaderBgMenuPopupLinkHoverLight dark:hover:bg-colorHeaderBgMenuPopupLinkHoverDark dark:bg-colorHeaderBgMenuPopupLinkDark"
-                            >
-                              <component
-                                :is="item.icon"
-                                class="h-6 w-6 flex-shrink-0 text-gray-400"
-                                aria-hidden="true"
-                              />
-                              <span class="ml-4">{{ item.name }}</span>
-                            </NuxtLink>
-                          </li>
-                        </ul>
-                      </div>
+
+
+
+                      
                     </nav>
-                    <div
-                      class="bg-colorHeaderBgMenuPopupFooterLight dark:bg-colorHeaderBgMenuPopupFooterDark px-4 py-8 sm:py-12 sm:px-6 lg:px-8 xl:pl-12"
-                    >
-                      <div>
-                        <h3
-                          class="text-base font-medium text-colorTxtLight dark:text-colorTxtDark"
-                        >
-                          From the blog
-                        </h3>
-                        <ul role="list" class="mt-6 space-y-6">
-                          <li
-                            v-for="post in navigation.blogPosts"
-                            :key="post.id"
-                            class="flow-root py-1"
-                          >
-                            <NuxtLink
-                              :to="localePath(post.href)"
-                              class="-m-3 flex rounded-lg p-3 bg-colorHeaderBgMenuPopupLinkLight hover:bg-colorHeaderBgMenuPopupLinkHoverLight dark:hover:bg-colorHeaderBgMenuPopupLinkHoverDark dark:bg-colorHeaderBgMenuPopupLinkDark"
-                            >
-                              <div class="hidden flex-shrink-0 sm:block">
-                                <img
-                                  class="h-20 w-32 rounded-md object-cover"
-                                  :src="post.imageUrl"
-                                  alt=""
-                                />
-                              </div>
-                              <div class="w-0 flex-1 sm:ml-8">
-                                <h4
-                                  class="truncate text-base font-medium text-colorTxtLight dark:text-colorTxtDark"
-                                >
-                                  {{ post.name }}
-                                </h4>
-                                <p class="mt-1 text-sm text-gray-500">
-                                  {{ post.preview }}
-                                </p>
-                              </div>
-                            </NuxtLink>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="mt-6 text-sm font-medium">
-                        <NuxtLink
-                          :to="localePath('/page')"
-                          class="text-colorHighLight hover:text-colorHighLight dark:text-colorHighDark dark:hover:text-colorHoverHighDark"
-                        >
-                          View all posts
-                          <span aria-hidden="true"> &rarr;</span>
-                        </NuxtLink>
-                      </div>
-                    </div>
+
+
+                    <BlocksBlogHeader v-if="project.$state.Headernavigation.MenuPopupSplitBlog"/>
+
+
+
+
+
+
                   </div>
                 </PopoverPanel>
               </transition>
@@ -306,15 +251,78 @@
           </PopoverGroup>
 
           <div class="flex items-center md:ml-12">
-            <BlocksSocialsSmall class="hidden lg:inline" />
+
+
+
+        <div class="flex mt-1" v-if="project.$state.shop">
+
+<BlocksShopIconsSearch class="mr-3 "/>
+
+
+              <!-- <nuxt-link :to="localePath('/wishlist')" class="text-base font-medium text-gray-500 hover:text-gray-900 dark:text-white">
+
+
+                    <wish />
+
+              </nuxt-link> -->
+
+
+
+              <button
+                class="snipcart-customer-signin appearance-none px-2 text-gray-800 hover:text-blue-600 rounded-md cursor-pointer focus:outline-none focus:text-blue-600 transition relative mr-3"
+                aria-label="User login"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  class="w-6 h-6 fill-current dark:text-white"
+                >
+                  <path fill="none" d="M0 0h24v24H0z" />
+                  <path d="M4 22a8 8 0 1 1 16 0h-2a6 6 0 1 0-12 0H4zm8-9c-3.315 0-6-2.685-6-6s2.685-6 6-6 6 2.685 6 6-2.685 6-6 6zm0-2c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
+                </svg>
+              </button>
+
+
+
+
+
+    <button class="snipcart-checkout flex items-center mr-3">
+      <BlocksShopIconsCart />
+
+
+
+    </button>
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+            <BlocksSocialsSmall class="hidden lg:inline" v-if="project.$state.headersocials"/>
             <BlocksSwitchLanguage
               v-if="project.$state.headerlanguage"
               :toggledown="true"
             />
             <NuxtLink
+            v-if="project.$state.headerlogin"
               :to="localePath('/page')"
               class="ml-4 inline-flex items-center justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm bg-colorBtnLight dark:bg-colorBtnDark dark:hover:bg-colorBtnHoverDark hover:bg-colorBtnHoverLight"
-              >Sign up</NuxtLink
+              >{{ project.$state.headerlogintext }}</NuxtLink
             >
           </div>
         </div>
@@ -336,53 +344,26 @@
         <div
           class="divide-y-2 divide-gray-50 rounded-lg bg-colorHeaderBgMenuPopupLight dark:bg-colorHeaderBgMenuPopupDark shadow-lg ring-1 ring-black ring-opacity-5"
         >
-          <div class="px-5 pt-5 pb-6 sm:pb-8">
-            <div class="flex items-center justify-between">
-              <div>
-                <NuxtLink :to="localePath('/')" class="flex">
-                  <span class="sr-only">{{ project.$state.name }}</span>
+          <div class="px-5 pt-16 pb-6 sm:pb-8">
 
-                  <img
-                    :class="[
-                      project.$state.logodark ? 'block dark:hidden' : '',
-                      '',
-                    ]"
-                    :src="'/logo/' + project.$state.logoimage"
-                    :alt="project.$state.name"
-                    width="40"
-                    height="40"
-                  />
-                  <img
-                    v-if="project.$state.logodark"
-                    class="hidden dark:block"
-                    :src="'/logo/' + project.$state.logodarkimage"
-                    :alt="project.$state.name"
-                    width="40"
-                    height="40"
-                  />
-
-                  <span
-                    v-if="project.$state.textlogo"
-                    class="mt-1.5 ml-4 text-xl font-bold dark:text-white"
-                    >{{ project.$state.textlogo }}</span
-                  >
-                </NuxtLink>
-              </div>
-              <div class="-mr-2">
-                <PopoverButton
-                  class="inline-flex items-center justify-center rounded-md bg-colorBgLight dark:bg-colorBgDark p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-colorHighLight dark:focus:ring-colorHighDark"
-                >
-                  <span class="sr-only">Close menu</span>
-                  <XMarkIcon class="h-6 w-6" aria-hidden="true" />
-                </PopoverButton>
-              </div>
-            </div>
             <div class="mt-6 sm:mt-8">
               <nav>
-                <div class="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-4">
-                  <NuxtLink
-                    v-for="item in navigation.primepop"
+                <div class="grid gap-7 sm:grid-cols-2 sm:gap-y-8 sm:gap-x-12">
+
+
+
+<div
+                    v-for="item in navigation.basicmenu"
                     :key="item.name"
+                    class="h-auto"
+
+>
+
+
+
+
+                  <NuxtLink
+                  v-if="item.mobile"
                     :to="localePath(item.href)"
                     class="-m-3 flex items-center rounded-lg p-3 bg-colorHeaderBgMenuPopupLinkLight hover:bg-colorHeaderBgMenuPopupLinkHoverLight dark:hover:bg-colorHeaderBgMenuPopupLinkHoverDark dark:bg-colorHeaderBgMenuPopupLinkDark"
                   >
@@ -397,21 +378,27 @@
                       {{ item.name }}
                     </div>
                   </NuxtLink>
+
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
                 </div>
-                <div class="mt-8 text-base">
-                  <NuxtLink
-                    :to="localePath('/page')"
-                    class="font-medium text-colorHighLight hover:text-colorHoverHighLight dark:text-colorHighDark dark:hover:text-colorHoverHighDark"
-                  >
-                    View all products
-                    <span aria-hidden="true"> &rarr;</span>
-                  </NuxtLink>
-                </div>
+
               </nav>
             </div>
           </div>
           <div class="py-6 px-5">
-            <div class="grid grid-cols-2 gap-4">
+            <!-- <div class="grid grid-cols-2 gap-4">
               <NuxtLink
                 :to="localePath('/page')"
                 class="rounded-md text-base font-medium text-colorTxtLight dark:text-colorTxtDark hover:text-gray-700"
@@ -442,12 +429,13 @@
                 class="rounded-md text-base font-medium text-colorTxtLight dark:text-colorTxtDark hover:text-gray-700"
                 >Contact Sales</NuxtLink
               >
-            </div>
+            </div> -->
             <div class="mt-6">
               <NuxtLink
+              v-if="project.$state.headerlogin"
                 :to="localePath('/page')"
                 class="flex w-full items-center justify-center rounded-md border border-transparent px-4 py-2 text-base font-medium text-white shadow-sm bg-colorBtnLight dark:bg-colorBtnDark dark:hover:bg-colorBtnHoverDark hover:bg-colorBtnHoverLight"
-                >Sign up</NuxtLink
+                >{{ project.$state.headerlogintext }}</NuxtLink
               >
             </div>
           </div>

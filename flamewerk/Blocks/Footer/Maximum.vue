@@ -11,6 +11,7 @@
             <span class="sr-only">{{ project.$state.name }}</span>
 
             <img
+            v-if="project.$state.logo"
               :class="[project.$state.logodark ? 'block dark:hidden' : '', '']"
               :src="'/logo/' + project.$state.logoimage"
               :alt="project.$state.name"
@@ -43,7 +44,7 @@
               <component :is="item.icon" class="h-6 w-6 text-colorHighLight hover:text-colorHoverHighLight dark:text-colorHighDark dark:hover:text-colorHoverHighDark" aria-hidden="true" />
             </NuxtLink> -->
 
-            <BlocksSocialsSmall />
+            <BlocksSocialsSmall v-if="project.$state.footersocials"/>
           </div>
         </div>
         <div class="mt-12 grid grid-cols-1 gap-8 xl:col-span-2 xl:mt-0">

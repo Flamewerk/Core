@@ -42,6 +42,7 @@
             <span class="sr-only">{{ project.$state.name }}</span>
 
             <img
+              v-if="project.$state.logo"
               :class="[project.$state.logodark ? 'block dark:hidden' : '', '']"
               :src="'/logo/' + project.$state.logoimage"
               :alt="project.$state.name"
@@ -113,6 +114,7 @@
             <span class="sr-only">{{ project.$state.name }}</span>
 
             <img
+              v-if="project.$state.logo"
               :class="[project.$state.logodark ? 'block dark:hidden' : '', '']"
               :src="'/logo/' + project.$state.logoimage"
               :alt="project.$state.name"

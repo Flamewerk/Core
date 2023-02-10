@@ -1,38 +1,43 @@
-import {ArrowPathIcon,ChartBarIcon,CursorArrowRaysIcon,DocumentChartBarIcon,Squares2X2Icon,BookmarkSquareIcon,BriefcaseIcon,BuildingOfficeIcon,CheckCircleIcon,ComputerDesktopIcon,GlobeAltIcon,InformationCircleIcon,NewspaperIcon,PhoneIcon,PlayIcon,ShieldCheckIcon,UserGroupIcon,} from '@heroicons/vue/24/outline'
 export const useSettings = defineStore("project", {
   state: () => ({
     name: "Flamewerk",
     tagline: "Making the world a better place through constructing elegant hierarchies.",
 
     textlogo: "Flamewerk",
+    logo: true,
     logoimage: "light.webp",
     logodark: false,    
     logodarkimage: "dark.webp",
 
     language: "en",
-    dafaultroute: "/error",     
+    dafaultroute: "/error",   // Default error route (can be set to / to just push dead links to the homepage)
 
     layout: 'web',            // (default, web, app, shop, docs )
     layoutnews: 'docs',       // (default, web, app, shop, docs ) 
     layoutdocs: 'docs',       // (default, web, app, shop, docs )      
 
-
-    shopcurrency: 'eur',      // Commerce Settings
+    shop: true,              // still need to hook up
+    shopcurrency: 'eur',      // Default Currenty ( Should be an object)
     snipcartid: 'YjIxYzVkZTMtZTAwYi00ODAxLWFiZTgtN2RmNGM4Y2NkZDJlNjM3MjQ4MDgxODk2ODI3ODcy', // Snipcart API
 
-    headertype: 'Minimal',    // Options: Tiny, Minimal, Maximum, Ecommerce, Application
+    headertype: 'Maximum',    // Options: Tiny, Maximum, Application
     headerlanguage: true,
+    headerlogin: true,
+    headersocials: true,
+    headerlogintext: 'Sign up!',
 
-    footertype: 'Tiny',       // Options: Tiny, Minimal, Maximum, Ecommerce
+    footertype: 'Ecommerce',       // Options: Tiny, Minimal, Maximum, Ecommerce
     footerlanguage: true,
+    footernewsletter: false,
+    footersocials: true,
     footertheme:true,         // Toggle Dark/Light mode switch
     
     socialnavigation : {      // Options: facebook, instragram, twitter, github, discord, linkedin, dribble
-      facebook: '',
-      instagram: '',
-      twitter: '',
-      github:'',
-      discord: '',
+      facebook: 'dsqqsd',
+      instagram: 'dqd',
+      twitter: 'dqsds',
+      github:'dqqs',
+      discord: 'dq',
       dribble: '',
       linkedin: '',
     },
@@ -41,100 +46,96 @@ export const useSettings = defineStore("project", {
     Headernavigation : { 
 
       basicmenu : [
-        {name: 'New Page', href: '/new-page',icon: CursorArrowRaysIcon,},
-      ],
-      // Minimal Header
-      resources : [
         {
-          name: 'Help Center',
-          description: 'Get all of your questions answered in our forums or contact support.',
-          href: '/page',
-        },
-        { name: 'Guides', description: 'Learn how to maximize our platform to get the most out of it.', href: '#' },
-        { name: 'Events', description: 'See what meet-ups and other events we might be planning near you.', href: '#' },
-        { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#' },
-      ],
-      solutions : [
-        {
-          name: 'Analytics',
+          name: 'New Page',
           description: 'Get a better understanding of where your traffic is coming from.',
-          href: '/page',
-          icon: ChartBarIcon,
+          href: '/new-page',
+          icon: '🖥️',
+          bgcolor:'bg-blue-500',
+          position: 1,
+          mobile: true,
+          mobileposition: 1,
         },
+
         {
-          name: 'Engagement',
-          description: 'Speak directly to your customers in a more meaningful way.',
-          href: '#',
-          icon: CursorArrowRaysIcon,
+          name: 'Old Page',
+          description: 'Get a better understanding of where your traffic is coming from.',
+          href: '/new-page',
+          icon: '🛍️',
+          bgcolor:'bg-blue-500',
+          position: 1,
+          mobile: false,
+          mobileposition: 1,
         },
-        { name: 'Security', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon },
+
         {
-          name: 'Integrations',
-          description: "Connect with third-party tools that you're already using.",
-          href: '#',
-          icon: Squares2X2Icon,
-        },
-        {
-          name: 'Automations',
-          description: 'Build strategic funnels that will drive your customers to convert',
-          href: '#',
-          icon: ArrowPathIcon,
-        },
-        {
-          name: 'Reports',
-          description: 'Get detailed reports that will help you make more informed decisions ',
-          href: '#',
-          icon: DocumentChartBarIcon,
+          name: 'Old Page',
+          description: 'Get a better understanding of where your traffic is coming from.',
+          href: '/new-page',
+          icon: '🛍️',
+          bgcolor:'bg-blue-500',
+          position: 1,
+          mobile: true,
+          mobileposition: 1,
         },
       ],
-      // Maximum Header
-      primepop : [
+
+      MenuPopupBig: true,
+      MenuPopupBigName: 'Popdown Menu',
+      MenuPopupSplit: true,
+      MenuPopupSplitName: 'Split Menu',
+      MenuPopupSplitBlog: true,
+
+
+      // MENU SLIDE OPEN
+      MenuPopupBigItems : [
         {
           name: 'Website',
           description: 'Get a better understanding of where your traffic is coming from.',
-          href: '/page',
+          href: '/new-page',
           icon: '🖥️',
           bgcolor:'bg-blue-500',
+          position: 1,
         },
         {
           name: 'Application',
           description: 'Speak directly to your customers in a more meaningful way.',
-          href: '#',
+          href: '/new-page',
           icon: '📱',
           bgcolor:'bg-yellow-500',
+          position: 2,
         },
         { name: 'E-commerce', 
           description: "Your customers' data will be safe and secure.", 
-          href: '#', 
+          href: '/new-page', 
           icon: '🛍️',
           bgcolor:'bg-purple-500', 
+          position: 3,
         }, 
         {
           name: 'Community',
           description: "Connect with third-party tools that you're already using.",
-          href: '#',
+          href: '/new-page',
           icon: '📓',
           bgcolor:'bg-pink-500',
+          position: 4,
         },
       ],
-      callsToAction : [
-        { name: 'Start Your Journey', href: '/page', icon: PlayIcon },
-        { name: 'View All Services', href: '#', icon: CheckCircleIcon },
-        { name: 'Contact Sales', href: '#', icon: PhoneIcon },
-      ],
-      company : [
-        { name: 'About', href: '/page', icon: InformationCircleIcon },
-        { name: 'Customers', href: '#', icon: BuildingOfficeIcon },
-        { name: 'Press', href: '#', icon: NewspaperIcon },
-        { name: 'Careers', href: '#', icon: BriefcaseIcon },
-        { name: 'Privacy', href: '#', icon: ShieldCheckIcon },
-      ],
-      partners : [
-        { name: 'Community', href: '/page', icon: UserGroupIcon },
-        { name: 'Partners', href: '#', icon: GlobeAltIcon },
-        { name: 'Guides', href: '#', icon: BookmarkSquareIcon },
-        { name: 'Webinars', href: '#', icon: ComputerDesktopIcon },
-      ],
+      MenuPopupSplitColums: {
+        company : [
+          { name: 'About', href: '/new-page', icon: '📱' },
+          { name: 'Customers', href: '/new-page', icon: '🛍️' },
+          { name: 'Press', href: '/new-page', icon: '☠️' },
+          { name: 'Careers', href: '/new-page', icon: '🦞' },
+          { name: 'Privacy', href: '/new-page', icon: '🦎' },
+        ],
+        partners : [
+          { name: 'Community', href: '/new-page', icon: '🐳' },
+          { name: 'Partners', href: '/new-page', icon: '🪸' },
+          { name: 'Guides', href: '/new-page', icon: '🌺' },
+          { name: 'Webinars', href: '/new-page', icon: '🍿' },
+        ],
+      }
     },
     // FOOTER NAVIGATION
     Footernavigation : {
