@@ -68,16 +68,6 @@ export const useSettings = defineStore("project", {
           mobileposition: 1,
         },
 
-        {
-          name: 'Old Page',
-          description: 'Get a better understanding of where your traffic is coming from.',
-          href: '/new-page',
-          icon: '🛍️',
-          bgcolor:'bg-blue-500',
-          position: 1,
-          mobile: true,
-          mobileposition: 1,
-        },
       ],
 
       MenuPopupBig: true,
