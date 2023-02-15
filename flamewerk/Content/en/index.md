@@ -2,5 +2,14 @@
 title: 'Flamewerk'
 description: 'meta description of the page'
 ---
-:ComponentReference
 
+[//]: :ComponentsReference
+
+[//]: :ComponentsMessage
+
+
+[//]: :BlocksShopProductsList
+
+[//]: :BlocksShopProductsSubscriptions
+
+:BlocksShopProductsDigital
