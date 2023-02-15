@@ -3,7 +3,7 @@
     <PopoverButton
       :class="[
         open ? 'text-gray-900' : 'text-gray-500',
-        'group inline-flex items-center rounded-md bg-colorSwitchBgLight dark:bg-colorSwitchBgDark text-base font-medium hover:text-gray-900 focus:outline-none ',
+        'group inline-flex items-center rounded-md text-base font-medium hover:text-gray-900 focus:outline-none ',
       ]"
     >
       <img
