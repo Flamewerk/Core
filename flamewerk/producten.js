@@ -1,8 +1,10 @@
 
 export const useProducten = defineStore('producten', {
     state: () => ({
+
+
         "lijst": [
-        {
+            {
             "id": 1,
             "identity": "1",
             "title": "T-shirt",
@@ -10,7 +12,6 @@ export const useProducten = defineStore('producten', {
             "price": {
               "usd": 25,
               "eur": 29
-            },
             "image": "https://flamewerk.com/stock/product/product1.jpg"
             },
             {
@@ -21,7 +22,6 @@ export const useProducten = defineStore('producten', {
             "price": {
               "usd": 30,
               "eur": 33
-            },
             "image": "https://flamewerk.com/stock/product/product2.jpg"
             },
             {
@@ -32,7 +32,6 @@ export const useProducten = defineStore('producten', {
               "price": {
                 "usd": 35,
                 "eur": 38
-              },
               "image": "https://flamewerk.com/stock/product/product3.jpg"
               },
               {
@@ -43,7 +42,6 @@ export const useProducten = defineStore('producten', {
                 "price": {
                   "usd": 38,
                   "eur": 40
-                },
                 "image": "https://flamewerk.com/stock/product/product4.jpg"
                 }
 
@@ -118,8 +116,6 @@ export const useProducten = defineStore('producten', {
 
 
         ]
-
-
 
     })
 })
