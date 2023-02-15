@@ -3,20 +3,20 @@
     <!-- FIND IF DOCUMENT EXIST IN CONTENT LANG FOLDER ( example /da/news )-->
     <ContentDoc>
       <template #empty>
-        <BlocksErrorEmpty />
+        <BlockErrorEmpty />
       </template>
       <!-- FIND IF DOCUMENT EXIST IN DEFAULT CONTENT LANG FOLDER ( example /default/news )-->
       <template #not-found>
         <ContentDoc :path="slug">
           <!-- REQUESTS ROUTE SLUG FOR DEFAULT LANG FOLDER -->
           <template #empty>
-            <BlocksErrorEmpty />
+            <BlockErrorEmpty />
           </template>
           <template #not-found>
             <ContentDoc :path="project.$state.dafaultroute">
               <!-- IF THIS DOES NOT EXIST RENDER THE ERROR CONTENT  ( example /error) -->
               <template #not-found>
-                <BlocksErrorNotFound />
+                <BlockErrorNotFound />
               </template>
             </ContentDoc>
           </template>

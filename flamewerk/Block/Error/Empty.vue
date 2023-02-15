@@ -27,18 +27,13 @@
       </div>
       <div class="pt-6 pb-16">
         <div class="text-center">
-          <p
-            class="text-4xl font-semibold text-colorHighLight dark:text-colorHighDark"
-          >
-            404
-          </p>
           <h1
             class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl text-colorTxtLight dark:text-colorTxtDark"
           >
-            Page not found.
+            Empty Page.
           </h1>
           <p class="mt-2 text-base text-colorTxtLight dark:text-colorTxtDark">
-            Sorry, we couldn’t find the page you’re looking for.
+            The Page exists but has no content.
           </p>
           <div class="mt-6">
             <NuxtLink
@@ -53,7 +48,7 @@
       </div>
     </main>
     <footer class="mx-auto w-full max-w-7xl flex-shrink-0 px-6 lg:px-8">
-      <BlocksSocialsSmall class="max-w-fit mx-auto" />
+      <BlockSocialsSmall class="max-w-fit mx-auto" />
     </footer>
   </div>
 </template>

@@ -110,8 +110,8 @@ export default defineNuxtConfig({
   tailwindcss: {
     config: {
       content: [
-        `./flamewerk/Blocks/**/*.{vue,js,ts}`,
-        `./flamewerk/Components/*.{vue,js,ts}`,
+        `./flamewerk/Block/**/*.{vue,js,ts}`,
+        `./flamewerk/Component/*.{vue,js,ts}`,
       ],
     },
   },
