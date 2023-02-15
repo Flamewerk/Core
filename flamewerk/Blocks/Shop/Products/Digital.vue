@@ -1,10 +1,10 @@
 <template>
   <div>
     <div
-      class="max-w-2xl mx-auto pb-16 px-4 sm:pt-20 sm:px-6 lg:max-w-7xl lg:px-8"
+      class="max-w-2xl mx-auto pt-16 px-4 sm:pt-20 sm:px-6 lg:max-w-7xl lg:px-8"
     >
     <div class="sm:flex sm:flex-col sm:align-center">
-      <h1 class="text-5xl font-extrabold text-colorTxtLight dark:text-colorTxtDark  sm:text-center">👑 Newest Products </h1>
+      <h1 class="text-5xl font-extrabold text-colorTxtLight dark:text-colorTxtDark  sm:text-center">👾 Digital Products </h1>
       <p class="mt-5 text-xl text-colorTxtLight dark:text-colorTxtDark  sm:text-center">Latest product releases and most popular items.</p>
     </div>
 
@@ -104,7 +104,7 @@ const producten = useProducten();
 
 console.log(producten);
 
-const products = producten.$state.lijst;
+const products = producten.$state.digital;
 
 console.log(products);
 </script>

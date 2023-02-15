@@ -3,7 +3,7 @@
 <div class="bg-colorBgLight dark:bg-colorBgDark ">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="sm:flex sm:flex-col sm:align-center">
-      <h1 class="text-5xl font-extrabold text-colorTxtLight dark:text-colorTxtDark  sm:text-center"><span v-if="plantype">Monthly </span> <span v-if="!plantype">Yearly </span>Pricing Plans </h1>
+      <h1 class="text-5xl font-extrabold text-colorTxtLight dark:text-colorTxtDark  sm:text-center">💳 <span v-if="plantype">Monthly </span> <span v-if="!plantype">Yearly </span>Pricing Plans </h1>
       <p class="mt-5 text-xl text-colorTxtLight dark:text-colorTxtDark  sm:text-center">Start building for free, then add a site plan to go live. Account plans unlock additional features.</p>
       <div class="relative self-center mt-6 bg-gray-100 rounded-lg p-0.5 flex sm:mt-8">
         <button @click="plantype = true" class="relative w-1/2 bg-white border-gray-200 rounded-md shadow-sm py-2 text-sm font-medium text-colorTxtLight  whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:z-10 sm:w-auto sm:px-8">Monthly billing</button>

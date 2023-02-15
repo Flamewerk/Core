@@ -2,13 +2,13 @@
 title: 'Flamewerk'
 description: 'meta description of the page'
 ---
-:ComponentsReference
+[//]: :ComponentsReference
 
-:ComponentsMessage
+[//]: :ComponentsMessage
 
-::BlocksProseContentCenter
-# Nuxt3 Production Template
 
-::
+[//]: :BlocksShopProductsList
 
-:BlocksShopProductsSubscriptions
+[//]: :BlocksShopProductsSubscriptions
+
+:BlocksShopProductsDigital

@@ -5,6 +5,10 @@ export default defineNuxtConfig({
     global: true,
     dirs: ["~/flamewerk"],
   },
+  css: [  
+    '@/flamewerk/css/main.css',  
+
+  ],
   modules: [
     "@nuxtjs/robots",
     "@kevinmarrec/nuxt-pwa",
