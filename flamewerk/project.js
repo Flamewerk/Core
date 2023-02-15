@@ -33,11 +33,11 @@ export const useSettings = defineStore("project", {
     footertheme:true,         // Toggle Dark/Light mode switch
     
     socialnavigation : {      // Options: facebook, instragram, twitter, github, discord, linkedin, dribble
-      facebook: 'dsqqsd',
-      instagram: 'dqd',
-      twitter: 'dqsds',
-      github:'dqqs',
-      discord: 'dq',
+      facebook: '',
+      instagram: '',
+      twitter: '',
+      github:'',
+      discord: '',
       dribble: '',
       linkedin: '',
     },

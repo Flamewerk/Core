@@ -10,3 +10,5 @@ description: 'meta description of the page'
 # Nuxt3 Production Template
 
 ::
+
+:BlocksShopProductsSubscriptions
